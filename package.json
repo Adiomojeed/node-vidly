@@ -1,0 +1,25 @@
+{
+  "name": "node-vidly",
+  "version": "1.0.0",
+  "description": "A project to practice fullstack MERN development",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adiomojeed/node-vidly.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Adiomojeed/node-vidly/issues"
+  },
+  "homepage": "https://github.com/Adiomojeed/node-vidly#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "joi": "^17.3.0"
+  }
+}
