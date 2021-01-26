@@ -1,7 +1,7 @@
 const express = require("express");
-const genreSeeder = require("../database/genreSeeder");
-const validator = require("../validations/validator");
 const router = express.Router();
+const genreSeeder = require("../database/seeder/genreSeeder");
+const validator = require("../validations/genreValidator");
 
 // Getting all genres
 router.get("/", async (req, res) => {

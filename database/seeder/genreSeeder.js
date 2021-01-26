@@ -1,23 +1,4 @@
-require("dotenv/config");
-const mongoose = require("mongoose");
-const debug = require("debug")("app:db");
-
-mongoose
-  .connect("mongodb://localhost/vidly", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => debug("Connected to database..."))
-  .catch(() => debug("Could not connect to the database"));
-
-const genreSchema = new mongoose.Schema({
-  name: { type: String, required: true, minlength: 4 },
-  downloads: { type: Number, required: true, min: 0 },
-  createdAt: { type: Date, default: Date.now },
-  updatedAt: { type: Date, default: Date.now },
-});
-
-const Genre = mongoose.model("Genre", genreSchema);
+const Genre = require("../../models/Genre");
 
 async function getGenres() {
   return (result = await Genre.find());
@@ -25,12 +6,11 @@ async function getGenres() {
 
 async function createGenre(data) {
   const { name, downloads } = data;
-  const genre = new Genre({
-    name,
-    downloads,
-  });
   try {
-    return (result = await genre.save());
+    return (result = await Genre.create({
+      name,
+      downloads,
+    }));
   } catch (err) {
     return err.message;
   }
