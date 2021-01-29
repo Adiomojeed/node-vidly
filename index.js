@@ -5,6 +5,8 @@ const morgan = require("morgan");
 const genres = require("./routes/genres");
 const customers = require("./routes/customers");
 const home = require("./routes/home");
+const movies = require("./routes/movies");
+const rentals = require("./routes/rentals");
 const dbConenct = require("./database/connect");
 
 const startupDebugger = require("debug")("app:startup");
@@ -18,6 +20,8 @@ app.use(express.static("public"));
 app.use("/", home);
 app.use("/api/genres", genres);
 app.use("/api/customers", customers);
+app.use("/api/movies", movies);
+app.use("/api/rentals", rentals);
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("tiny"));
